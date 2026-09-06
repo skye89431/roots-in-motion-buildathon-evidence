@@ -1,0 +1,12 @@
+.env
+.env.*
+node_modules/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+.shogo/
+.shogo-*
+.memory-index.db
+.DS_Store
+Thumbs.db
