@@ -1,65 +1,101 @@
 # Architecture Evidence
 
-## Canonical transaction flow
+## Purpose
 
-```text
-SUPPLY
-  ↓
-MARKET INTELLIGENCE
-  ↓
-COMMERCIAL VIABILITY
-  ↓
-DEMAND
-  ↓
-WINNIE GOVERNANCE
-  ↓
-ACTION / MOVEMENT
-  ↓
+This document provides high-level architectural evidence for the Roots In Motion prototype developed during the Future Caribbean Buildathon 2026.
+
+It intentionally describes system behaviour and component relationships without publishing proprietary decision logic, governance rules, thresholds, prompts or implementation details.
+
+## High-Level Transaction Flow
+
+SUPPLY  
+↓  
+MARKET INTELLIGENCE  
+↓  
+COMMERCIAL VIABILITY  
+↓  
+DEMAND  
+↓  
+GOVERNED COORDINATION  
+↓  
+ACTION / MOVEMENT  
+↓  
 OUTCOME / LEARNING
-```
 
-## Responsibility and authority boundaries
+## System Architecture
 
-| Component | Responsibility | Output | Authority boundary |
-|---|---|---|---|
-| Supply Agent | Understand grounded supply from seller / forecast evidence | Supply confidence / state | Cannot authorise execution |
-| Market Intelligence Agent | Interpret wider market evidence | Observed market signal | Cannot declare transaction viability |
-| Commercial Viability Agent | Test transaction economics | VIABLE / NEGOTIATE / NOT VIABLE | Cannot invent missing cost evidence |
-| Demand Agent | Test grounded demand and provenance | Demand confidence / state | Cannot authorise movement |
-| Winnie | Evaluate evidence, confidence and governance rules | GREEN / AMBER / RED | Controls execution authority |
-| In Motion / Execution | Coordinate the permitted next action | Listing / commitment / movement / execution events | Acts only inside Winnie authority |
-| Outcome Intelligence | Capture what happened | Reusable transaction signal | Outcome is evidence, not universal proof |
+Roots In Motion was designed as a multi-component agentic coordination system.
 
-## Agentic loop
+The prototype demonstrated that specialist components can:
 
-```text
-EVIDENCE
-  → UNDERSTANDING
-  → SPECIALIST REASONING
-  → DECISION
-  → AUTHORITY
-  → ACTION
-  → OUTCOME
-  → NEW EVIDENCE
-```
+- interpret different forms of transaction evidence;
+- contribute to a shared transaction context;
+- reason across changing transaction conditions;
+- coordinate decisions across system boundaries;
+- pause for human intervention where required;
+- resume execution following permitted intervention;
+- initiate downstream actions;
+- capture outcomes as new evidence.
 
-## Governance states
+## Specialist Coordination
 
-### GREEN
-- autonomous execution permitted
-- no human approval required
+The Buildathon prototype separated specialist reasoning rather than relying on a single general-purpose agent.
 
-### AMBER
-- transaction pauses
-- human approval required
-- execution may resume after approval
+Specialist capabilities tested included:
 
-### RED
-- execution not permitted
-- unsafe action stops
+- supply interpretation;
+- market intelligence;
+- commercial viability;
+- demand interpretation;
+- governed coordination;
+- execution and movement;
+- outcome intelligence.
 
-## Interoperability principle
+This separation allowed different evidence sources to contribute to the same transaction without requiring every component to perform every function.
+
+## Agentic Loop
+
+EVIDENCE  
+→ INTERPRETATION  
+→ SPECIALIST REASONING  
+→ COORDINATION  
+→ PERMITTED ACTION  
+→ OUTCOME  
+→ NEW EVIDENCE
+
+The resulting outcome can become part of the evidence available to future transactions.
+
+## Human-in-the-Loop
+
+The prototype demonstrated both autonomous and human-in-the-loop execution paths.
+
+Depending on the transaction state, the system could:
+
+- continue autonomously;
+- pause before execution;
+- accept an authorised human decision;
+- resume the same transaction;
+- stop execution where action was not permitted.
+
+The underlying governance logic, thresholds and decision rules are proprietary and are not published in this repository.
+
+## Interoperability Principle
 
 Roots is designed as a coordination layer rather than a replacement for every seller, buyer, logistics or commerce interface.
 
-Different interfaces may initiate or receive Roots actions while transaction-scoped governance and execution controls preserve a single governed transaction state.
+The Buildathon prototype tested the architectural principle that different interfaces can initiate or receive actions while maintaining a coherent transaction state.
+
+## Public Architecture Boundary
+
+This repository does not disclose:
+
+- proprietary governance architecture;
+- internal decision rules or thresholds;
+- prompts or reasoning instructions;
+- production orchestration code;
+- credentials or environment configuration;
+- private datasets;
+- internal operating systems;
+- commercially sensitive implementation details.
+
+The purpose of this repository is to evidence the architecture tested during the Buildathon, not reproduce the production system.
