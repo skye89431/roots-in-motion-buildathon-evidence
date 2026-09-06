@@ -1,56 +1,68 @@
 # Acceptance Test Results
 
-## Final orchestrator suite
+## Final Orchestrator Suite
 
-**Result: 112 passed · 0 failed · exit code 0**
+**Result: 112 assertions passed · 0 failed · exit code 0**
 
-| Test section | Assertions | Result |
+The final acceptance suite tested the controlled behaviour of the Roots In Motion Buildathon prototype.
+
+## Test Coverage
+
+| Test Area | Assertions | Result |
 |---|---:|---|
-| TEST 1: GREEN PATH | 36 | PASS |
-| TEST 1b: IDEMPOTENCY | 4 | PASS |
-| TEST 1c: UNIQUENESS | 3 | PASS |
-| TEST 2: AMBER pre-approval | 15 | PASS |
-| TEST 3: AMBER approved resume | 20 | PASS |
-| TEST 4: IDEMPOTENCY retry | 6 | PASS |
-| TEST 5: REJECTED | 10 | PASS |
-| TEST 6: RED | 5 | PASS |
-| FINAL VERIFICATION | 8 | PASS |
+| Autonomous execution path | 36 | PASS |
+| Repeat-execution protection | 4 | PASS |
+| Transaction uniqueness | 3 | PASS |
+| Human-review pre-execution path | 15 | PASS |
+| Approved continuation path | 20 | PASS |
+| Retry behaviour | 6 | PASS |
+| Rejected transaction behaviour | 10 | PASS |
+| Stopped execution path | 5 | PASS |
+| Final verification | 8 | PASS |
 
-## GREEN behaviour
+## Behaviour Demonstrated
 
-The final controlled GREEN path preserved:
-- governance = GREEN;
-- human approval not required;
-- authority = `AGENT_AUTONOMOUS`;
-- no AIRecommendation required for GREEN human review;
-- execution by `SYSTEM:WINNIE`.
+The controlled tests demonstrated that the prototype could:
 
-## AMBER behaviour
+- coordinate a transaction across specialist components;
+- use grounded evidence during transaction reasoning;
+- execute an eligible transaction without human intervention;
+- pause another transaction for human review;
+- preserve transaction continuity following intervention;
+- resume permitted execution;
+- prevent duplicate execution;
+- maintain transaction uniqueness;
+- stop transactions that should not proceed;
+- create downstream transaction actions;
+- preserve evidence provenance through tested transaction paths.
 
-The final controlled AMBER path preserved:
-- governance = AMBER;
-- status = `PAUSED_APPROVAL`;
-- human approval required;
-- AI recommendation created;
-- human decision approval recorded;
-- execution resumed after approval.
+## Grounding Correction
 
-## Movement-origin assertion
+During final acceptance testing, one movement-origin assertion was corrected to resolve the originating party through the transaction's associated evidence rather than relying on a fixed test value.
 
-The final Sweet Potato movement-origin test was corrected so the assertion resolves:
+The correction was confined to the test assertion.
 
-```text
-transaction.supplyForecastId
-→ selected SupplyForecast
-→ forecast seller
-→ grounded seller business/location data
-→ movement.origin assertion
-```
+This strengthened the test by ensuring that the assertion validated the transaction's actual evidence relationship.
 
-No seller name was hardcoded.
+## Implementation Boundary
 
-The correction changed the **test assertion**, not production orchestration logic.
+This public document reports test outcomes rather than publishing:
 
-## Production-code integrity
+- production orchestration logic;
+- proprietary governance rules;
+- internal decision thresholds;
+- prompts or reasoning instructions;
+- private transaction data;
+- internal runtime configuration.
 
-The reported verification found no changes to the production orchestration paths checked during the final movement-origin correction. The change was confined to the orchestrator test assertion.
+Detailed Buildathon evidence is retained within the submission evidence package.
+
+## Result
+
+**FINAL ACCEPTANCE: PASS**
+
+**112 assertions passed**  
+**0 failed**  
+**Exit code 0**
+
+This establishes controlled prototype behaviour within the scope of the Buildathon acceptance suite. It does not claim live production deployment or commercial validation.
